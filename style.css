@@ -1,0 +1,365 @@
+
+/* ========================================
+   1. CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-fundo: #f4f6f9;
+    --cor-cartao: #ffffff;
+    --cor-texto: #171923;
+    --cor-secundaria: #687080;
+    --cor-borda: #e7eaf0;
+    --cor-hover: #eef0f4;
+    --sombra: 0 8px 30px rgba(22, 34, 51, 0.07);
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    min-height: 100vh;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   2. TÍTULOS
+======================================== */
+
+h1 {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 36px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--cor-texto);
+    border-radius: 10px;
+    margin: 12px auto 0;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin: 28px 0 16px;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   3. CATÁLOGO DE PRODUTOS
+======================================== */
+
+table {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 20px 0;
+    table-layout: fixed;
+}
+
+td {
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 18px;
+    padding: 28px 20px;
+    text-align: center;
+    vertical-align: top;
+    box-shadow: var(--sombra);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+td:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(22, 34, 51, 0.10);
+}
+
+/* ========================================
+   4. IMAGENS DOS PRODUTOS
+======================================== */
+
+td > img:first-child {
+    display: block;
+    width: 100%;
+    max-width: 230px;
+    height: 220px;
+    object-fit: contain;
+    margin: 0 auto 14px;
+}
+
+td > img:nth-child(2) {
+    display: inline-block;
+    width: auto;
+    max-width: 120px;
+    max-height: 25px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+td > img:nth-of-type(3) {
+    display: block;
+    width: auto;
+    max-width: 125px;
+    max-height: 32px;
+    object-fit: contain;
+    margin: 12px auto;
+}
+
+/* ========================================
+   5. NOMES E PREÇOS
+======================================== */
+
+td h3:first-of-type {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    min-height: 54px;
+    margin: 8px 0 12px;
+}
+
+td h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cor-secundaria);
+    margin: 12px 0 4px;
+}
+
+td del {
+    color: #8a919e;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+td mark {
+    display: inline-block;
+    background-color: #eef0f4;
+    color: var(--cor-texto);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+td h3:last-of-type {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--cor-texto);
+    margin: 12px 0 8px;
+}
+
+td p {
+    color: var(--cor-secundaria);
+    font-size: 0.88rem;
+    margin: 10px 0 24px;
+}
+
+/* ========================================
+   6. BOTÕES DA LOJA
+   Saiba mais, carrinho e pagamento
+======================================== */
+
+td a,
+button,
+.botao-finalizar,
+input[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background-color: transparent;
+    color: var(--cor-texto);
+
+    border: 1px solid #cfd4de;
+    border-radius: 10px;
+
+    padding: 12px 24px;
+    min-height: 48px;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+
+td a:hover,
+button:hover,
+.botao-finalizar:hover,
+input[type="submit"]:hover {
+    background-color: var(--cor-hover);
+    color: var(--cor-texto);
+    border-color: #aeb5c2;
+    transform: translateY(-2px);
+}
+
+/* Imagem dentro do botão Saiba mais */
+
+td a img {
+    display: block;
+    width: auto;
+    max-width: 135px;
+    max-height: 28px;
+    object-fit: contain;
+}
+
+/* Botão de pagamento ocupando a largura disponível */
+
+.botao-finalizar {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* ========================================
+   7. FORMULÁRIOS E CHECKOUT
+======================================== */
+
+form {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--cor-cartao);
+    border: 1px solid var(--cor-borda);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+}
+
+form label {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+form input,
+form select {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #cfd4de;
+    border-radius: 9px;
+    background-color: #ffffff;
+    color: var(--cor-texto);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #687080;
+}
+
+/* Espaçamento entre os campos */
+
+form br + br {
+    display: block;
+    content: "";
+    margin-bottom: 8px;
+}
+
+/* Resumo do pedido */
+
+form p {
+    margin: 10px 0;
+    color: var(--cor-secundaria);
+}
+
+form h3 {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--cor-borda);
+    font-size: 1.4rem;
+}
+
+/* ========================================
+   8. RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 760px) {
+    body {
+        padding: 28px 16px;
+    }
+
+    h1 {
+        margin-bottom: 26px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        border-spacing: 0;
+        table-layout: auto;
+    }
+
+    tbody,
+    tr {
+        display: block;
+        width: 100%;
+    }
+
+    td {
+        display: block;
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto 22px;
+        padding: 24px 18px;
+    }
+
+    td > img:first-child {
+        height: 200px;
+    }
+
+    td h3:first-of-type {
+        min-height: auto;
+    }
+
+    form {
+        padding: 22px 18px;
+    }
+
+    button,
+    .botao-finalizar,
+    input[type="submit"] {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   9. ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
